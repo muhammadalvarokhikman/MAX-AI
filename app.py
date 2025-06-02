@@ -155,7 +155,7 @@ def split_text(text, chunk_size=500, chunk_overlap=50):
     return chunks
 
 # Function to create FAISS index
-@st.cache_resource # Cache the index creation based on file content hash (implicitly)
+# REMOVED @st.cache_resource as it caused hashing errors with dynamic chunks/model
 def create_faiss_index(text_chunks, model):
     if not text_chunks:
         return None, None
